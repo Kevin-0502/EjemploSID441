@@ -1,34 +1,39 @@
 import React from 'react'
-import { Card,CardBody,CardTitle,CardSubtitle,CardText,Button } from 'reactstrap'
+import { Card,CardBody,CardTitle,CardSubtitle,CardText } from 'reactstrap'
 
-export default function CardExample() {
+const CardExample=({item})=> {
+
+  const width = window.innerWidth
+  const height =  window.innerHeight
+
     return (
         <Card
   style={{
-    width: '18rem'
+    width: width/4,
   }}
 >
   <img
-    alt="Sample"
-    src="https://picsum.photos/300/200"
+    alt=''
+    src={item.image}
+    height={'50%'}
+    width={'100%'}
   />
   <CardBody>
     <CardTitle tag="h5">
-      Card title
+      {item.name}
     </CardTitle>
     <CardSubtitle
       className="mb-2 text-muted"
       tag="h6"
     >
-      Card subtitle
+      {item.team}
     </CardSubtitle>
     <CardText>
-      Some quick example text to build on the card title and make up the bulk of the card‘s content.
+      {item.country}
     </CardText>
-    <Button className='bg-primary'>
-      Button
-    </Button>
   </CardBody>
 </Card>
     )
 }
+
+export default CardExample
